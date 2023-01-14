@@ -1,3 +1,4 @@
+import { API_CONFIG } from './../../../config/api.config';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -14,15 +15,10 @@ export class CategoriaService {
 
   private apiPath: string = "http://localhost:8080/categoria";
 
-  constructor(
-    private http: HttpClient
-  ) { }
+  constructor(private http: HttpClient) { }
 
   getAll(): Observable<Categoria[]> {
-    return this.http.get(this.apiPath).pipe(
-      catchError(this.handleError),
-      map(this.jsonDataToCategorias)
-    )
+    return this.http.get<Categoria[]>(`${API_CONFIG.baseUrl}/categoria`);
   }
 
   getById(id: number): Observable<Categoria> {

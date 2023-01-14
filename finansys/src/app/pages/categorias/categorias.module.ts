@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 import { CategoriasRoutingModule } from './categorias-routing.module';
 import { CategoriaListComponent } from './componentes/categoria-list/categoria-list.component';
@@ -15,7 +16,8 @@ import { TesteComponent } from './teste/teste.component';
   ],
   imports: [
     CommonModule,
-    CategoriasRoutingModule
+    CategoriasRoutingModule,
+    HttpClientModule
   ]
 })
 export class CategoriasModule { }
